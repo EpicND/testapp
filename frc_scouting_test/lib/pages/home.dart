@@ -46,7 +46,9 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextField(
+                Row(
+                  children: <Widget>[
+                      TextField(
                   onChanged: (text) {
                     print("First text field: $text");
                     text1 = "$text";
@@ -57,13 +59,16 @@ class _HomeState extends State<Home> {
                     hintText: 'Enter a team #'
                   ),
                 ),
+                  ],
+                ),
+              
               FloatingActionButton(
                 child: Icon(Icons.add),
               onPressed: () async {
                 await instance.getData("$text1");
-                score = instance.score;
-                print(score);
                 setState((){score = instance.score;});
+                print(score);
+
               },
             ),
               Text('$score')
