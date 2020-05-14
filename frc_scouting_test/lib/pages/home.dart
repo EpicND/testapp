@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
 
     void setupScoreGet() async {
     TBAGet instance = TBAGet();
-    // await instance.getData('2264');
+    await instance.getData('2264');
     setState((){score = instance.score;});
     }
       @override
