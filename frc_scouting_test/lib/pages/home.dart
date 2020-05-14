@@ -24,8 +24,11 @@ class _HomeState extends State<Home> {
       ),
       body: SafeArea(
         child: Center(
-          child: Container(
-            child: FlatButton.icon(
+          child: Container (
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+              FlatButton.icon(
               onPressed: () {
                 setState((){
                   counter ++;
@@ -36,6 +39,9 @@ class _HomeState extends State<Home> {
                 'Add/Load Data',
                 style: TextStyle(color: Colors.grey),
               ),
+            ),
+              Image.asset('assets/bean.jpg'),
+              ]
             ),
           ),
         ),
