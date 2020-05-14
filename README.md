@@ -1,2 +1,2 @@
 # testapp
-yea bet
+# beta test for FRC Scouting
