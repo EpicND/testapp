@@ -10,6 +10,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
       TBAGet instance = TBAGet(teamNumber: '2264');
       int counter = 0;
+      String score;
       @override
   void initState() {
     // TODO: implement initState
@@ -43,9 +44,11 @@ class _HomeState extends State<Home> {
               FloatingActionButton(
                 child: Icon(Icons.add),
               onPressed: () {
-                setState(() {
+                setState((){
                   // counter++;
+                  // String score = await instance.getData();
                   instance.getData();
+                  score = instance.score;
                 });
               },
 
