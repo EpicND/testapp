@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-              FloatingActionButton.icon(
+              FloatingActionButton(
                 child: Icon(Icons.add),
               onPressed: () {
                 setState(() async {
