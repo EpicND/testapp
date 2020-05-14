@@ -11,7 +11,10 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
-        title: Text('FRC Scouting'),
+        title: Text(
+       'Pandemicalm',
+       style: TextStyle(fontSize: 23, color: Colors.green),
+        ),
         centerTitle: true,
         backgroundColor: Colors.black87,
       ),
