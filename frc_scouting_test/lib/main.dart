@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frc_scouting_test/pages/home.dart';
 
 void main() {
   runApp(
@@ -8,16 +9,3 @@ void main() {
   );
 }
 
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('FRC Scout'),
-          centerTitle: true,
-          backgroundColor: Colors.black54,
-        ),
-      );
-  }
-}
