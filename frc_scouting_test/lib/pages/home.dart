@@ -11,6 +11,7 @@ class _HomeState extends State<Home> {
       TBAGet instance = TBAGet(teamNumber: '2264');
       int counter = 0;
       String score;
+      String teamNumber;
       @override
   void initState() {
     // TODO: implement initState
@@ -41,6 +42,15 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                TextField(
+                  onChanged: (text) {
+                    print("First text field: $text");
+                  },
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'Enter a team #'
+                  ),
+                ),
               FloatingActionButton(
                 child: Icon(Icons.add),
               onPressed: () {
