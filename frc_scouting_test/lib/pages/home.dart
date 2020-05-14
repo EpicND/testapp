@@ -10,14 +10,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
       int counter = 0;
-      String score;
       String teamNumber;
       String score = 'Loading data...';
 
 
     void setupScoreGet() async {
-          TBAGet instance = TBAGet(teamNumber: '2264');
-    await instance.getData();
+          TBAGet instance = TBAGet();
+    await instance.getData('2264');
     setState((){score = instance.score;});
     }
       @override
@@ -67,7 +66,7 @@ class _HomeState extends State<Home> {
                   // counter++;
                   // String score = await instance.getData();
 
-                  score = instance.score;
+                  // score = instance.score;
                 });
               },
 
