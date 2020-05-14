@@ -36,9 +36,9 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
           title: Text(
             'Scoultimate',
-            style: TextStyle(fontSize: 23, color: Colors.yellow[700]),
+            style: TextStyle(fontSize: 45, color: Colors.yellow[700]),
           ),
-          centerTitle: true,
+          centerTitle: false,
           backgroundColor: Colors.black87,
           actions: <Widget>[
           Image.asset('assets/logo2.png'),
