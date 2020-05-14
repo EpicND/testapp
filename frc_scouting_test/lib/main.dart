@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
 void main() {
-
-
-  
-
-
   runApp(
     MaterialApp(
       home: Home(),
@@ -21,7 +16,7 @@ class Home extends StatelessWidget {
         appBar: AppBar(
           title: Text('FRC Scout'),
           centerTitle: true,
-          backgroundColor: Colors.black87,
+          backgroundColor: Colors.black54,
         ),
       );
   }
