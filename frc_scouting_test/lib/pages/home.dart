@@ -8,8 +8,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-      int counter = 1;
       TBAGet instance = TBAGet(teamNumber: '2264');
+      int counter = 0;
 
   @override
   Widget build(BuildContext context) {
