@@ -8,8 +8,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-      
+
       int counter = 0;
+      String score;
+      String teamNumber;
       String score = 'Loading data...';
 
 
@@ -18,8 +20,6 @@ class _HomeState extends State<Home> {
     await instance.getData();
     setState((){score = instance.score;});
     }
-
-
       @override
   void initState(){
     // TODO: implement initState
@@ -51,7 +51,28 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              Text('$score', style: TextStyle(color: Colors.grey, fontSize: 45))
+                TextField(
+                  onChanged: (text) {
+                    print("First text field: $text");
+                  },
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'Enter a team #'
+                  ),
+                ),
+              FloatingActionButton(
+                child: Icon(Icons.add),
+              onPressed: () {
+                setState((){
+                  // counter++;
+                  // String score = await instance.getData();
+
+                  score = instance.score;
+                });
+              },
+
+            ),
+              Text('$score')
               // Image.asset('assets/bean.jpg'),
               ],
             ),
