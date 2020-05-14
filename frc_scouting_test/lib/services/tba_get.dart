@@ -8,7 +8,7 @@ String score;
 
 String apiKey = 'mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd';
 
-TBAGet({this.teamNumber});
+TBAGet();
 
 
 Future <void> getData() async {
