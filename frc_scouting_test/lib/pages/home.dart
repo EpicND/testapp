@@ -63,6 +63,7 @@ class _HomeState extends State<Home> {
                 await instance.getData("$text1");
                 score = instance.score;
                 print(score);
+                setState((){score = instance.score;});
               },
             ),
               Text('$score')
