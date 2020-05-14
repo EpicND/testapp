@@ -46,9 +46,7 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  children: <Widget>[
-                      TextField(
+                TextField(
                   onChanged: (text) {
                     print("First text field: $text");
                     text1 = "$text";
@@ -58,8 +56,6 @@ class _HomeState extends State<Home> {
                     border: InputBorder.none,
                     hintText: 'Enter a team #'
                   ),
-                ),
-                  ],
                 ),
               
               FloatingActionButton(
