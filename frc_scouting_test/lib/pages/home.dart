@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
               },
 
             ),
-              Image.asset('assets/bean.jpg'),
+              // Image.asset('assets/bean.jpg'),
               ],
             ),
           ),
