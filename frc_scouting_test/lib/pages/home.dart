@@ -15,8 +15,8 @@ class _HomeState extends State<Home> {
 
 
     void setupScoreGet() async {
-          TBAGet instance = TBAGet();
-    await instance.getData('2264');
+    TBAGet instance = TBAGet();
+    // await instance.getData('2264');
     setState((){score = instance.score;});
     }
       @override
@@ -53,6 +53,9 @@ class _HomeState extends State<Home> {
                 TextField(
                   onChanged: (text) {
                     print("First text field: $text");
+                    TBAGet instance = TBAGet();
+                    print(instance.getData("$text"));
+                    score = instance.score;
                   },
                   decoration: InputDecoration(
                     border: InputBorder.none,

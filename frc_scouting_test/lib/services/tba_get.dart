@@ -18,6 +18,7 @@ Future <void> getData(teamNum) async {
     List data = jsonDecode(response.body);
     print(data[1]['alliances']['red']['score']);
     score = data[1]['alliances']['red']['score'].toString();
+    return score;
   
       } catch (e){
         print('caught error $e');
