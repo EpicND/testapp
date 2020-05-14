@@ -4,7 +4,10 @@ import 'package:frc_scouting_test/pages/home.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: Home(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+      },
     ),
   );
 }
