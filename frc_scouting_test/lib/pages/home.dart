@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
+    instance.getData();
   }
 
   @override
@@ -47,13 +47,14 @@ class _HomeState extends State<Home> {
                 setState((){
                   // counter++;
                   // String score = await instance.getData();
-                  instance.getData();
+
                   score = instance.score;
                 });
               },
 
             ),
               Image.asset('assets/bean.jpg'),
+              Text('$score')
               ],
             ),
           ),

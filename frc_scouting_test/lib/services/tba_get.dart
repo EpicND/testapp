@@ -17,7 +17,7 @@ Future <void> getData() async {
     Response response = await get('https://www.thebluealliance.com/api/v3/team/frc$teamNumber/event/2020mndu/matches/simple?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
     List data = jsonDecode(response.body);
     print(data[1]['alliances']['red']['score']);
-    score = data[1]['alliances']['red']['score'];
+    score = data[1]['alliances']['red']['score'].toString();
   
       } catch (e){
         print('caught error $e');
