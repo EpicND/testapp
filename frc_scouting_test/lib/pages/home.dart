@@ -8,14 +8,24 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-      TBAGet instance = TBAGet(teamNumber: '2264');
+      
       int counter = 0;
-      String score;
+      String score = 'Loading data...';
+
+
+    void setupScoreGet() async {
+          TBAGet instance = TBAGet(teamNumber: '2264');
+    await instance.getData();
+    setState((){score = instance.score;});
+    }
+
+
       @override
-  void initState() {
+  void initState(){
     // TODO: implement initState
     super.initState();
-    instance.getData();
+    setupScoreGet();
+
   }
 
   @override
@@ -39,7 +49,7 @@ class _HomeState extends State<Home> {
         child: Center(
           child: Container (
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
               FloatingActionButton(
                 child: Icon(Icons.add),
@@ -48,12 +58,12 @@ class _HomeState extends State<Home> {
                   // counter++;
                   // String score = await instance.getData();
 
-                  score = instance.score;
+                  // score = instance.score;
                 });
               },
 
             ),
-              Text('$score')
+              Text('$score', style: TextStyle(color: Colors.grey, fontSize: 45))
               // Image.asset('assets/bean.jpg'),
               ],
             ),
