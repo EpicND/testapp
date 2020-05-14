@@ -12,7 +12,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
         title: Text(
-       'Pandemicalm',
+       'Scoultimate',
        style: TextStyle(fontSize: 23, color: Colors.green),
         ),
         centerTitle: true,
