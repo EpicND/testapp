@@ -30,13 +30,14 @@ class _HomeState extends State<Home> {
   @override
 
   Widget build(BuildContext context) {
-
+    score = 'Loading data...';
+    String text1;
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
           title: Text(
             'Scoultimate',
-            style: TextStyle(fontSize: 45, color: Colors.yellow[700]),
+            style: TextStyle(fontSize: 43, color: Colors.yellow[700], fontFamily: 'Tomorrow'),
           ),
           centerTitle: false,
           backgroundColor: Colors.black87,
@@ -53,9 +54,8 @@ class _HomeState extends State<Home> {
                 TextField(
                   onChanged: (text) {
                     print("First text field: $text");
-                    TBAGet instance = TBAGet();
-                    print(instance.getData("$text"));
-                    score = instance.score;
+                    text1 = "$text";
+                    
                   },
                   decoration: InputDecoration(
                     border: InputBorder.none,
@@ -66,10 +66,10 @@ class _HomeState extends State<Home> {
                 child: Icon(Icons.add),
               onPressed: () {
                 setState((){
-                  // counter++;
-                  // String score = await instance.getData();
-
-                  // score = instance.score;
+                  TBAGet instance = TBAGet();
+                  score = instance.getData("$text1").toString();
+                  print("lol $score");
+                  print(instance.score);
                 });
               },
 
