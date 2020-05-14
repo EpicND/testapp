@@ -40,7 +40,8 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:     
-    - assets/bean.jpg
+    - assets/bean.jpg 
+    - assets/logo2.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
