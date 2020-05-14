@@ -51,18 +51,6 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              FloatingActionButton(
-                child: Icon(Icons.add),
-              onPressed: () {
-                setState((){
-                  // counter++;
-                  // String score = await instance.getData();
-
-                  // score = instance.score;
-                });
-              },
-
-            ),
               Text('$score', style: TextStyle(color: Colors.grey, fontSize: 45))
               // Image.asset('assets/bean.jpg'),
               ],
