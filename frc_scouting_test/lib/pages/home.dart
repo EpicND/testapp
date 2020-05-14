@@ -53,8 +53,8 @@ class _HomeState extends State<Home> {
               },
 
             ),
-              Image.asset('assets/bean.jpg'),
               Text('$score')
+              // Image.asset('assets/bean.jpg'),
               ],
             ),
           ),
