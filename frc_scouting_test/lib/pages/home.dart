@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:frc_scouting_test/services/tba_get.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
       int counter = 1;
+      TBAGet instance = TBAGet(teamNumber: '2264');
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +27,15 @@ class _HomeState extends State<Home> {
       body: SafeArea(
         child: Center(
           child: Container(
-            child: FlatButton.icon(
+            child: FloatingActionButton(
+              child: Icon(Icons.add),
               onPressed: () {
-                setState((){
-                  counter ++;
+                setState(() async {
+                  // counter ++;
+                  await instance.getData();
                 });
               },
-              icon: Icon(Icons.add, color: Colors.grey[600],),
-              label: Text(
-                'Add/Load Data',
-                style: TextStyle(color: Colors.grey),
-              ),
+
             ),
           ),
         ),
