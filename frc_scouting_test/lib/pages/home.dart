@@ -7,13 +7,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+      int counter = 1;
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
         title: Text(
-          'Scoultimate',
+          'Scoultimate $counter',
           style: TextStyle(fontSize: 23, color: Colors.yellow[700]),
         ),
         centerTitle: true,
@@ -23,7 +26,11 @@ class _HomeState extends State<Home> {
         child: Center(
           child: Container(
             child: FlatButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                setState((){
+                  counter ++;
+                });
+              },
               icon: Icon(Icons.add, color: Colors.grey[600],),
               label: Text(
                 'Add/Load Data',
