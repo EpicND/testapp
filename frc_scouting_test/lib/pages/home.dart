@@ -11,26 +11,21 @@ class _HomeState extends State<Home> {
 
       int counter = 0;
       String teamNumber;
-      String score = 'Loading data...';
+      TBAGet instance = TBAGet();
 
-
-    void setupScoreGet() async {
-    TBAGet instance = TBAGet();
-    await instance.getData('2264');
-    setState((){score = instance.score;});
-    }
+    
       @override
   void initState(){
     // TODO: implement initState
     super.initState();
-    setupScoreGet();
+    
 
   }
 
   @override
 
   Widget build(BuildContext context) {
-    score = 'Loading data...';
+    String score = 'Loading data...';
     String text1;
     return Scaffold(
       backgroundColor: Colors.grey[900],
@@ -64,15 +59,11 @@ class _HomeState extends State<Home> {
                 ),
               FloatingActionButton(
                 child: Icon(Icons.add),
-              onPressed: () {
-                setState((){
-                  TBAGet instance = TBAGet();
-                  score = instance.getData("$text1").toString();
-                  print("lol $score");
-                  print(instance.score);
-                });
+              onPressed: () async {
+                await instance.getData("$text1");
+                score = instance.score;
+                print(score);
               },
-
             ),
               Text('$score')
               // Image.asset('assets/bean.jpg'),
