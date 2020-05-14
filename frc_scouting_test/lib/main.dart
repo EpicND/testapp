@@ -5,7 +5,7 @@ void main() {
     MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('FRC Scout'),
+          title: Text('FRC Scouts'),
           centerTitle: true,
         ),
       ),
