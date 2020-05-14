@@ -17,20 +17,23 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
-        title: Text(
-          'Scoultimate $counter',
-          style: TextStyle(fontSize: 23, color: Colors.yellow[700]),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.black87,
-      ),
+          title: Text(
+            'Scoultimate',
+            style: TextStyle(fontSize: 23, color: Colors.yellow[700]),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.black87,
+          actions: <Widget>[
+          Image.asset('assets/logo2.png'),
+          ],
+       ),
       body: SafeArea(
         child: Center(
           child: Container (
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-              FloatingActionButton.icon(
+              FloatingActionButton(
                 child: Icon(Icons.add),
               onPressed: () {
                 setState(() async {
@@ -41,7 +44,7 @@ class _HomeState extends State<Home> {
 
             ),
               Image.asset('assets/bean.jpg'),
-              ]
+              ],
             ),
           ),
         ),
