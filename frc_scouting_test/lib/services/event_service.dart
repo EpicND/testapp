@@ -6,7 +6,7 @@ class EventService {
 String teamNumber;
 String score;
 var teamNumArr = []; 
-List<Object> teamNumList = List<Object>();
+List<Map> teamNumList = List<Map>();
 
 String apiKey = 'mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd';
 
@@ -33,7 +33,7 @@ Future <void> getData(curNum) async {
         
         }
     }
-    print(teamNumList);
+    // print(teamNumList);
 
       } catch (e){
         print('caught error $e');
@@ -44,13 +44,14 @@ Future <void> getData(curNum) async {
 
 }
 
-void updateTeams() { 
+Future <void> updateTeams() async { 
 EventService teamRequest = EventService();
 for(int n=1; n<10; n++) { 
-teamRequest.getData(n);
+await teamRequest.getData(n.toString());
+}
+print(teamNumArr);
 }
 
-}
 
 }
 

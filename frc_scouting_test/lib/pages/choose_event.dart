@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:frc_scouting_test/services/event_service.dart';
 
@@ -19,10 +21,12 @@ class _ChooseLocationState extends State<ChooseLocation> {
   var numberList = List<String>();
 
   Future <void> getList() async {
-    await eventService.getData('5');
-    eventService.teamNumList.forEach((element) {
-      print('${eventService.teamNumList}');
-    });
+    await eventService.updateTeams();
+    List<Map> objects = eventService.teamNumList;
+    // objects.forEach((element) {
+    //   print(objects[element]["teamNumber"]);
+    // });
+    print(eventService.teamNumList);
 
 
   }
@@ -89,12 +93,8 @@ class _ChooseLocationState extends State<ChooseLocation> {
               shrinkWrap: true,
               itemCount: items.length,
               itemBuilder: (context, index) {
-                return Row(
-                  children: <Widget>[
-                    ListTile(
-                      title: Text('${items[index]}'),
-                    ),
-                  ],
+                return ListTile(
+                  title: Text('${items[index]}'),
                 );
               },
             ),
