@@ -58,7 +58,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
                 controller: editingController,
                 decoration: InputDecoration(
                   labelText: "Search",
-                  hintText: "Search",
+                  hintText: "Search teams",
                   prefixIcon: Icon(Icons.search),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
