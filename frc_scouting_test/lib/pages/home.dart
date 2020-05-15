@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
                 child: Icon(Icons.add),
               onPressed: () async {
                 await instance.getData("$text1");
-                setState((){score = instance.score;});
+                // setState((){score = instance.score;});
                 print(score);
 
               },
