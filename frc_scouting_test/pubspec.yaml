@@ -42,6 +42,7 @@ flutter:
   assets:     
     - assets/bean.jpg 
     - assets/logo2.png
+    - assets/background.png
   fonts:
     - family: Tomorrow     
       fonts:
