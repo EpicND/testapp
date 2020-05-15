@@ -23,10 +23,10 @@ class _ChooseLocationState extends State<ChooseLocation> {
   Future <void> getList() async {
     await eventService.updateTeams();
     List<Map> objects = eventService.teamNumList;
+    String addition;
     objects.forEach((element) {
-      // print(element["teamNumber"]);
-      numberList.add(element["teamNumber"].toString());
-
+      addition = element["name"].toString() + " - " + element["teamNumber"].toString();
+      numberList.add(addition);
     });
     duplicateItems.addAll(numberList);
     setState((){
