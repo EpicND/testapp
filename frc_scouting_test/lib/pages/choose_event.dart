@@ -14,7 +14,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
 
 
 
-  final duplicateItems = List<String>.generate(100000, (index) => "Item $index");
+  var duplicateItems = List<String>();
   var items = List<String>();
   EventService eventService = EventService();
 
@@ -23,10 +23,15 @@ class _ChooseLocationState extends State<ChooseLocation> {
   Future <void> getList() async {
     await eventService.updateTeams();
     List<Map> objects = eventService.teamNumList;
-    // objects.forEach((element) {
-    //   print(objects[element]["teamNumber"]);
-    // });
-    print(eventService.teamNumList);
+    objects.forEach((element) {
+      // print(element["teamNumber"]);
+      numberList.add(element["teamNumber"].toString());
+
+    });
+    duplicateItems.addAll(numberList);
+    setState((){
+      items.addAll(duplicateItems);
+    });
 
 
   }

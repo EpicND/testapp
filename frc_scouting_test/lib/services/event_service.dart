@@ -30,6 +30,8 @@ Future <void> getData(curNum) async {
           'state': data[x]['state_prov'],
           'country': data[x]['country'],
         });
+        // print(teamNumList[1]['teamNumber']);
+        // print(teamNumArr[1]);
         
         }
     }
@@ -45,9 +47,9 @@ Future <void> getData(curNum) async {
 }
 
 Future <void> updateTeams() async { 
-EventService teamRequest = EventService();
-for(int n=1; n<10; n++) { 
-await teamRequest.getData(n.toString());
+
+for(int n=0; n<21; n++) { 
+await getData(n.toString());
 }
 print(teamNumArr);
 }
