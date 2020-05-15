@@ -9,10 +9,7 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-  
   TextEditingController editingController = TextEditingController();
-
-
 
   var duplicateItems = List<String>();
   var items = List<String>();
@@ -21,49 +18,45 @@ class _ChooseLocationState extends State<ChooseLocation> {
   var numberList = List<String>();
   var teamNameList = List<String>();
 
-  Future <void> getList() async {
+  Future<void> getList() async {
     await eventService.updateTeams();
     List<Map> objects = eventService.teamNumList;
+    String addition;
     objects.forEach((element) {
       // print(element["teamNumber"]);
       numberList.add(element["teamNumber"].toString());
       teamNameList.add(element['name']);
-
     });
     duplicateItems.addAll(numberList);
-    setState((){
+    setState(() {
       items.addAll(duplicateItems);
     });
-
-
   }
 
   // @override
-  void filterSearch(String query){
+  void filterSearch(String query) {
     List<String> dummySearchList = List<String>();
     dummySearchList.addAll(duplicateItems);
-    if(query.isNotEmpty){
+    if (query.isNotEmpty) {
       List<String> dummyListData = List<String>();
       dummySearchList.forEach((element) {
-        if(element.toLowerCase().contains(query.toLowerCase())){
+        if (element.toLowerCase().contains(query.toLowerCase())) {
           dummyListData.add(element);
         }
       });
 
-      setState((){
+      setState(() {
         items.clear();
         items.addAll(dummyListData);
       });
       return;
-      } else {
-        setState((){
-          items.clear();
-          items.addAll(duplicateItems);
-        });
-      }
+    } else {
+      setState(() {
+        items.clear();
+        items.addAll(duplicateItems);
+      });
     }
-
-  
+  }
 
   @override
   void initState() {
@@ -83,7 +76,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
             Padding(
               padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
-                onChanged: (value) {filterSearch(value);},
+                onChanged: (value) {
+                  filterSearch(value);
+                },
                 controller: editingController,
                 decoration: InputDecoration(
                   labelText: "Search",
@@ -97,15 +92,33 @@ class _ChooseLocationState extends State<ChooseLocation> {
               ),
             ),
             Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('${items[index]}'),
-                );
-              },
-            ),
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    child: Row(
+                      children: <Widget>[
+                        Card(
+                          child: Row(
+                            // crossAxisAlignment: CrossAxisAlignment.stretch,
+
+                            children: <Widget>[
+                              Container(
+                                child: Text('${items[index]}'),
+                              ),
+                              SizedBox(width: 90),
+                              Container(
+                                child: Text('${teamNameList[index]}'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
