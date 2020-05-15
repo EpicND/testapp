@@ -81,7 +81,11 @@ class _HomeState extends State<Home> {
         // Using the callback State.setState() is the only way to get the build
         // method to rerun with the updated state value.
         setState(() {
+          if(score == null) {
+           _textString = "Enter a different number bimbo"; 
+          } else { 
           _textString = score;
+          }
         });
       }
   
