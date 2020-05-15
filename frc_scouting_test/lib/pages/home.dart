@@ -69,6 +69,7 @@ class _HomeState extends State<Home> {
               },
             ),
               Text(_textString),
+              FlatButton(child: Icon(Icons.group, color: Colors.grey[200]), onPressed: (){Navigator.pushNamed(context, '/choose_event');},)
               // Image.asset('assets/bean.jpg'),
               ],
             ),

@@ -8,7 +8,7 @@ void main() {
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),
-        '/choose_location': (context) => ChooseLocation(),
+        '/choose_event': (context) => ChooseLocation(),
       },
     ),
   );
