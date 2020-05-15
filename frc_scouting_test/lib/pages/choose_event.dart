@@ -8,7 +8,7 @@ class ChooseLocation extends StatefulWidget {
 class _ChooseLocationState extends State<ChooseLocation> {
   
   TextEditingController editingController = TextEditingController();
-  final duplicateItems = List<String>.generate(10000, (index) => "Item $index");
+  final duplicateItems = List<String>.generate(100000, (index) => "Item $index");
   var items = List<String>();
 
 
@@ -19,7 +19,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
     if(query.isNotEmpty){
       List<String> dummyListData = List<String>();
       dummySearchList.forEach((element) {
-        if(element.contains(query)){
+        if(element.toLowerCase().contains(query.toLowerCase())){
           dummyListData.add(element);
         }
       });
@@ -52,7 +52,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(0.8),
+              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
                 onChanged: (value) {filterSearch(value);},
                 controller: editingController,
