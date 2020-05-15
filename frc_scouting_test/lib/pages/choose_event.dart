@@ -93,28 +93,24 @@ class _ChooseLocationState extends State<ChooseLocation> {
             ),
             Expanded(
               child: ListView.builder(
-                shrinkWrap: true,
+                // shrinkWrap: true,
                 itemCount: items.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    child: Row(
-                      children: <Widget>[
-                        Card(
-                          child: Row(
-                            // crossAxisAlignment: CrossAxisAlignment.stretch,
-
-                            children: <Widget>[
-                              Container(
-                                child: Text('${items[index]}'),
-                              ),
-                              SizedBox(width: 90),
-                              Container(
-                                child: Text('${teamNameList[index]}'),
-                              ),
-                            ],
+                  return Center(
+                    child: Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          ListTile(
+                            leading: Text(
+                              '${items[index]}',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                            title: Text('${teamNameList[index]}')
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 },
