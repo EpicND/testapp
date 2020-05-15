@@ -19,6 +19,8 @@ class _ChooseLocationState extends State<ChooseLocation> {
   var numberList = List<String>();
   var teamNameList = List<String>();
 
+  bool isLoading;
+
   Future<void> getList() async {
     await eventService.updateTeams();
     List<Map> objects = eventService.teamNumList;
@@ -27,11 +29,13 @@ class _ChooseLocationState extends State<ChooseLocation> {
       // print(element["teamNumber"]);
       numberList.add(element["teamNumber"].toString());
       teamNameList.add(element['name']);
-      duplicateItems1.add(element["teamNumber"].toString() + " - " + element['name']);
+      duplicateItems1
+          .add(element["teamNumber"].toString() + " - " + element['name']);
     });
     duplicateItems.addAll(numberList);
     setState(() {
       items.addAll(duplicateItems);
+      isLoading = false;
     });
   }
 
@@ -56,6 +60,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
       setState(() {
         items.clear();
         items.addAll(duplicateItems);
+
       });
     }
   }
@@ -66,15 +71,20 @@ class _ChooseLocationState extends State<ChooseLocation> {
     super.initState();
     // items.addAll(duplicateItems);
     getList();
+    isLoading = true;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Teams')),
+      appBar: AppBar(
+        title: Text('Teams'),
+      ),
+
       body: Container(
         child: Column(
           children: <Widget>[
+            isLoading ? LinearProgressIndicator() : Container(),
             Padding(
               padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
@@ -104,13 +114,13 @@ class _ChooseLocationState extends State<ChooseLocation> {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           ListTile(
-                            leading: Text(
-                              '${items[index]}',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                            title: Text('${teamNameList[duplicateItems.indexOf(items[index])]}')
-                          ),
+                              leading: Text(
+                                '${items[index]}',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                              title: Text(
+                                  '${teamNameList[duplicateItems.indexOf(items[index])]}')),
                         ],
                       ),
                     ),
