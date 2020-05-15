@@ -8,7 +8,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
+      String _textString = 'Loading data...'; 
+      String score;
       int counter = 0;
       String teamNumber;
       TBAGet instance = TBAGet();
@@ -25,7 +26,7 @@ class _HomeState extends State<Home> {
   @override
 
   Widget build(BuildContext context) {
-    String score = 'Loading data...';
+    
     String text1;
     return Scaffold(
       backgroundColor: Colors.grey[900],
@@ -62,12 +63,12 @@ class _HomeState extends State<Home> {
                 child: Icon(Icons.add),
               onPressed: () async {
                 await instance.getData("$text1");
-                // setState((){score = instance.score;});
-                print(score);
-
+                setState((){score = instance.score;});
+                // print(_textString);
+                _doSomething();
               },
             ),
-              Text('$score')
+              Text(_textString),
               // Image.asset('assets/bean.jpg'),
               ],
             ),
@@ -76,4 +77,12 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+  void _doSomething() {
+        // Using the callback State.setState() is the only way to get the build
+        // method to rerun with the updated state value.
+        setState(() {
+          _textString = score;
+        });
+      }
+  
 }
