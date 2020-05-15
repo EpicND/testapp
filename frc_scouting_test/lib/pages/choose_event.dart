@@ -19,6 +19,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
   EventService eventService = EventService();
 
   var numberList = List<String>();
+  var teamNameList = List<String>();
 
   Future <void> getList() async {
     await eventService.updateTeams();
@@ -26,6 +27,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
     objects.forEach((element) {
       // print(element["teamNumber"]);
       numberList.add(element["teamNumber"].toString());
+      teamNameList.add(element['name']);
 
     });
     duplicateItems.addAll(numberList);
@@ -47,6 +49,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
           dummyListData.add(element);
         }
       });
+
       setState((){
         items.clear();
         items.addAll(dummyListData);
