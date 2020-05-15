@@ -12,6 +12,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
   TextEditingController editingController = TextEditingController();
 
   var duplicateItems = List<String>();
+  var duplicateItems1 = List<String>();
   var items = List<String>();
   EventService eventService = EventService();
 
@@ -26,6 +27,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
       // print(element["teamNumber"]);
       numberList.add(element["teamNumber"].toString());
       teamNameList.add(element['name']);
+      duplicateItems1.add(element["teamNumber"].toString() + " - " + element['name']);
     });
     duplicateItems.addAll(numberList);
     setState(() {
@@ -36,12 +38,12 @@ class _ChooseLocationState extends State<ChooseLocation> {
   // @override
   void filterSearch(String query) {
     List<String> dummySearchList = List<String>();
-    dummySearchList.addAll(duplicateItems);
+    dummySearchList.addAll(duplicateItems1);
     if (query.isNotEmpty) {
       List<String> dummyListData = List<String>();
       dummySearchList.forEach((element) {
         if (element.toLowerCase().contains(query.toLowerCase())) {
-          dummyListData.add(element);
+          dummyListData.add(numberList[dummySearchList.indexOf(element)]);
         }
       });
 
