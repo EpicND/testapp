@@ -62,7 +62,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    items.addAll(duplicateItems);
+    // items.addAll(duplicateItems);
     getList();
   }
 
@@ -107,7 +107,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
-                            title: Text('${teamNameList[index]}')
+                            title: Text('${teamNameList[duplicateItems.indexOf(items[index])]}')
                           ),
                         ],
                       ),
