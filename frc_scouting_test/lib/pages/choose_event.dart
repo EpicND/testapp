@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frc_scouting_test/services/event_service.dart';
 
 class ChooseLocation extends StatefulWidget {
   @override
@@ -8,9 +9,23 @@ class ChooseLocation extends StatefulWidget {
 class _ChooseLocationState extends State<ChooseLocation> {
   
   TextEditingController editingController = TextEditingController();
+
+
+
   final duplicateItems = List<String>.generate(100000, (index) => "Item $index");
   var items = List<String>();
+  EventService eventService = EventService();
 
+  var numberList = List<String>();
+
+  Future <void> getList() async {
+    await eventService.getData('5');
+    eventService.teamNumList.forEach((element) {
+      print('${eventService.teamNumList}');
+    });
+
+
+  }
 
   // @override
   void filterSearch(String query){
@@ -35,6 +50,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
         });
       }
     }
+
   
 
   @override
@@ -42,6 +58,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
     // TODO: implement initState
     super.initState();
     items.addAll(duplicateItems);
+    getList();
   }
 
   @override
@@ -72,8 +89,12 @@ class _ChooseLocationState extends State<ChooseLocation> {
               shrinkWrap: true,
               itemCount: items.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('${items[index]}'),
+                return Row(
+                  children: <Widget>[
+                    ListTile(
+                      title: Text('${items[index]}'),
+                    ),
+                  ],
                 );
               },
             ),
