@@ -29,8 +29,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
       // print(element["teamNumber"]);
       numberList.add(element["teamNumber"].toString());
       teamNameList.add(element['name']);
-      duplicateItems1
-          .add(element["teamNumber"].toString() + " - " + element['name']);
+      duplicateItems1.add(element["teamNumber"].toString() + " - " + element['name'] + " - " + element['state'].toString() + " - " + element['city'].toString());
     });
     duplicateItems.addAll(numberList);
     setState(() {
