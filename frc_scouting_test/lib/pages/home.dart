@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
             style: TextStyle(fontSize: 43, color: Colors.yellow[700], fontFamily: 'Tomorrow'),
           ),
           centerTitle: false,
-          backgroundColor: Colors.black87,
+          backgroundColor: Colors.grey[900],
           actions: <Widget>[
           Image.asset('assets/logo2.png'),
           ],
@@ -49,9 +49,7 @@ class _HomeState extends State<Home> {
               children: [
                 TextField(
                   onChanged: (text) {
-                    print("First text field: $text");
                     text1 = "$text";
-                    
                   },
                   decoration: InputDecoration(
                     border: InputBorder.none,
