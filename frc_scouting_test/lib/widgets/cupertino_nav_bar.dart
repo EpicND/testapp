@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class CuptertinoNavBar extends StatelessWidget {
+class CupertinoNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(

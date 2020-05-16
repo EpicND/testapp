@@ -8,7 +8,7 @@ void main() {
     MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => Home(),
+        '/': (context) => CupertinoNavBar(),
         '/choose_event': (context) => ChooseLocation(),
       },
     ),
