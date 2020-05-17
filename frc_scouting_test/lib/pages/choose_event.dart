@@ -18,10 +18,22 @@ class _ChooseLocationState extends State<ChooseLocation> {
 
   var numberList = List<String>();
   var teamNameList = List<String>();
+  var response = List();
 
   bool isLoading;
 
   Future<void> getList() async {
+    if(teamNameList.isEmpty){
+      // List<Map<dynamic, dynamic>> _teamNameList = await EventService.readTeamDataFromStorage();
+      // print(await EventService.readTeamDataFromStorage());
+      var _response = await EventService.readTeamDataFromStorage();
+      setState(() {
+              response = _response;
+      });
+
+      // print(_response);
+      print('got request');
+    }
     await eventService.updateTeams();
     List<Map> objects = eventService.teamNumList;
     String addition;
@@ -75,6 +87,8 @@ class _ChooseLocationState extends State<ChooseLocation> {
 
   @override
   Widget build(BuildContext context) {
+        response.isEmpty ? print('empty response') :print(response[1]['teamNumber']) ;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Teams'),
@@ -119,7 +133,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
                                     fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                               title: Text(
-                                  '${teamNameList[duplicateItems.indexOf(items[index])]}')),
+                                  '${ teamNameList.isEmpty ? response[index]['name'] : teamNameList[duplicateItems.indexOf(items[index])]}')),
                         ],
                       ),
                     ),

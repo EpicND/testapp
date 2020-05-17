@@ -10,7 +10,7 @@ class EventService {
 String teamNumber;
 String score;
 var teamNumArr = []; 
-List<Map> teamNumList = List<Map>();
+List<dynamic> teamNumList = List<Map>();
 
 String apiKey = 'mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd';
 
@@ -56,7 +56,7 @@ for(int n=0; n<21; n++) {
 await getData(n.toString());
 }
 // await _writeTeamDataToStorage(teamNumList);
-_readTeamDataFromStorage();
+readTeamDataFromStorage();
 // print(teamNumArr);
 }
 
@@ -69,19 +69,24 @@ Future <void> _writeTeamDataToStorage(List<Map> teams) async {
     json.encode(teams.toList())
   );
 }
-Future<List<Map>> _readTeamDataFromStorage() async {
+static Future<List<dynamic>> readTeamDataFromStorage() async {
     final dir = await paths.getApplicationDocumentsDirectory();
     final file = File('${dir.path}/team_data.json');
 
     if(await file.exists()) {
       final JsonStr = await file.readAsString();
-      final decoded = json.decode(JsonStr);
-      final List _storedList = List<Map>();
-      print(decoded);
+      final decoded = json.decode(JsonStr).toList();
+      final List<Map> _storedList = List<Map>();
+      // decoded.forEach((index){
+      //   _storedList.add(decoded[index]);
+      // });
+      print(decoded[1]['name']);
+      // print(teamNum)
       // return decoded.map<Map>((x) => Map.fromJson());
-      teamNumList.clear();
-      teamNumList.addAll(decoded);
-      print(teamNumList);
+      // teamNumList.clear();
+      // teamNumList = teamNumList + decoded;
+      // print(teamNumList);
+      return decoded;
     } else {
       return <Map>[];
     }
