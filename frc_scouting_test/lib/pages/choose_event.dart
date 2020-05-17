@@ -67,7 +67,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
       setState(() {
         items.clear();
         items.addAll(dummyListData);
-        if(items.isEmpty){
+        if(dummyListData.isEmpty){
           items.add('No results');
         }
       });
