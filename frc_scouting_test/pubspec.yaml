@@ -40,7 +40,9 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:     
-    - assets/
+    - assets/logo2.png
+    - assets/logo.png
+    - assets/download.png
   fonts:
     - family: Tomorrow     
       fonts:
