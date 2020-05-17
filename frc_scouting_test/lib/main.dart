@@ -3,16 +3,17 @@ import 'package:frc_scouting_test/pages/home.dart';
 import 'package:frc_scouting_test/pages/choose_event.dart';
 import 'package:frc_scouting_test/widgets/android.dart';
 import 'package:frc_scouting_test/widgets/cupertino_nav_bar.dart';
+import 'package:frc_scouting_test/widgets/cupertino_app.dart';
 
 void main() {
+
   runApp(
     MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => Android(),
+        '/': (context) => Home(),
         '/choose_event': (context) => ChooseLocation(),
       },
     ),
   );
 }
-

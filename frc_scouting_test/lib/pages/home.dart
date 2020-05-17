@@ -1,6 +1,8 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/material.dart';
 import 'package:frc_scouting_test/services/tba_get.dart';
+import 'package:flutter/foundation.dart';
+// import 'package:multiplatform/adaptive_widgets.dart';
 
 class Home extends StatefulWidget {
   @override

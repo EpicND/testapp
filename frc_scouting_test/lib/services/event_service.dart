@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:path_provider/path_provider.dart' as paths;
+import 'package:json_annotation/json_annotation.dart';
 
 class EventService {
 
@@ -51,10 +55,41 @@ Future <void> updateTeams() async {
 for(int n=0; n<21; n++) { 
 await getData(n.toString());
 }
-print(teamNumArr);
+// await _writeTeamDataToStorage(teamNumList);
+_readTeamDataFromStorage();
+// print(teamNumArr);
 }
 
 
+Future <void> _writeTeamDataToStorage(List<Map> teams) async {
+  final dir = await paths.getApplicationDocumentsDirectory();
+  final file = File('${dir.path}/team_data.json');
+
+  return file.writeAsString(
+    json.encode(teams.toList())
+  );
+}
+Future<List<Map>> _readTeamDataFromStorage() async {
+    final dir = await paths.getApplicationDocumentsDirectory();
+    final file = File('${dir.path}/team_data.json');
+
+    if(await file.exists()) {
+      final JsonStr = await file.readAsString();
+      final decoded = json.decode(JsonStr);
+      final List _storedList = List<Map>();
+      print(decoded);
+      // return decoded.map<Map>((x) => Map.fromJson());
+      teamNumList.clear();
+      teamNumList.addAll(decoded);
+      print(teamNumList);
+    } else {
+      return <Map>[];
+    }
+
+    
+
+
+}
 }
 
 
