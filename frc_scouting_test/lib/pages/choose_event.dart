@@ -18,7 +18,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
 
   var numberList = List<String>();
   var teamNameList = List<String>();
-  var response = List();
+  var storedTeamNumbers = List<String>();
+  var storedTeamNames = List<String>();
+  var storedTeamLocations = List<String>();
 
   bool isLoading;
 
@@ -26,10 +28,10 @@ class _ChooseLocationState extends State<ChooseLocation> {
     if(teamNameList.isEmpty){
       // List<Map<dynamic, dynamic>> _teamNameList = await EventService.readTeamDataFromStorage();
       // print(await EventService.readTeamDataFromStorage());
-      var _response = await EventService.readTeamDataFromStorage();
-      setState(() {
-              response = _response;
-      });
+      // var _response = await EventService.readTeamDataFromStorage();
+      // setState(() {
+      //         response = _response;
+      // });
 
       // print(_response);
       print('got request');
@@ -65,6 +67,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
       setState(() {
         items.clear();
         items.addAll(dummyListData);
+        if(items.isEmpty){
+          items.add('No results');
+        }
       });
       return;
     } else {
@@ -76,18 +81,31 @@ class _ChooseLocationState extends State<ChooseLocation> {
     }
   }
 
+  Future<void> getStoredList() async {
+    var epic = await EventService.readTeamDataFromStorage();
+    print(epic);
+    setState((){
+      epic.forEach((element) {
+        storedTeamNumbers.add(element['teamNumber'].toString());
+        storedTeamNames.add(element['name']);
+      });
+    });
+    
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     // items.addAll(duplicateItems);
+  getStoredList();
     getList();
     isLoading = true;
   }
 
   @override
   Widget build(BuildContext context) {
-        response.isEmpty ? print('empty response') :print(response[1]['teamNumber']) ;
+        // storedTeamNumbers.isEmpty ? print('empty response') :print('${storedTeamNumbers[0]} epffsjfj') ;
 
     return Scaffold(
       appBar: AppBar(
@@ -105,7 +123,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
                   filterSearch(value);
                 },
                 controller: editingController,
-                decoration: InputDecoration(
+                decoration: items.isEmpty ? InputDecoration() : InputDecoration(
                   labelText: "Search",
                   hintText: "Search teams",
                   prefixIcon: Icon(Icons.search),
@@ -119,7 +137,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
             Expanded(
               child: ListView.builder(
                 // shrinkWrap: true,
-                itemCount: items.length,
+                itemCount: items.isEmpty ? storedTeamNumbers.length : items.length,
                 itemBuilder: (context, index) {
                   return Center(
                     child: Card(
@@ -128,12 +146,12 @@ class _ChooseLocationState extends State<ChooseLocation> {
                         children: <Widget>[
                           ListTile(
                               leading: Text(
-                                '${items[index]}',
+                                '${items.isEmpty ? storedTeamNumbers[index] : items[index]}',
                                 style: TextStyle(
                                     fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                               title: Text(
-                                  '${ teamNameList.isEmpty ? response[index]['name'] : teamNameList[duplicateItems.indexOf(items[index])]}')),
+                                  '${ teamNameList.isEmpty ? storedTeamNames[index] : teamNameList[duplicateItems.indexOf(items[index])]}')),
                         ],
                       ),
                     ),
