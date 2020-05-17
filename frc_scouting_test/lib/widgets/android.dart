@@ -80,7 +80,7 @@ class Android extends StatelessWidget {
                             child: CircleAvatar(
                               radius:37.0,
                               backgroundColor: Colors.white,
-                              backgroundImage: AssetImage('assets/logo.png'),
+                              backgroundImage: AssetImage('assets/logo2.png'),
                             ),
                           ),
                           ),
