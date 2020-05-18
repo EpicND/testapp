@@ -58,18 +58,29 @@ class _ChooseLocationState extends State<ChooseLocation> {
     dummySearchList.addAll(duplicateItems1);
     if (query.isNotEmpty) {
       List<String> dummyListData = List<String>();
+      dummyListData.clear();
       dummySearchList.forEach((element) {
+        bool cont = true;
+        int ph = 0;
         if (element.toLowerCase().contains(query.toLowerCase())) {
-          dummyListData.add(numberList[dummySearchList.indexOf(element)]);
+          try { 
+            ph = dummySearchList.indexOf(element);
+          } catch (error) {
+            cont = false;
+          }
+          if(cont) { 
+            dummyListData.add(numberList[ph]);
+          } 
         }
       });
+        
 
       setState(() {
         items.clear();
-        items.addAll(dummyListData);
         if(dummyListData.isEmpty){
           items.add('No results');
         }
+        items.addAll(dummyListData);
       });
       return;
     } else {

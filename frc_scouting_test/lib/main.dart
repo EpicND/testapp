@@ -11,7 +11,7 @@ void main() {
     MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => Home(),
+        '/': (context) => Android(),
         '/choose_event': (context) => ChooseLocation(),
       },
     ),
