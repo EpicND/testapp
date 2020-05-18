@@ -28,7 +28,7 @@ dependencies:
   http: ^0.12.1
   json_annotation: ^3.0.1
   json_serializable: ^3.3.0
-  
+  flutter_platform_widgets: ^0.40.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -45,12 +45,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  assets:     
-    - assets/logo2.png
-    - assets/logo.png
-    - assets/download.png
+  assets:
+    - assets/
   fonts:
-    - family: Tomorrow     
+    - family: Tomorrow
       fonts:
         - asset: assets/tmrw.ttf
 
