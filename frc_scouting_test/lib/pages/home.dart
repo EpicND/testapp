@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/material.dart';
+import 'package:frc_scouting_test/services/event_service.dart';
 import 'package:frc_scouting_test/services/tba_get.dart';
 import 'package:flutter/foundation.dart';
 // import 'package:multiplatform/adaptive_widgets.dart';
@@ -17,11 +18,16 @@ class _HomeState extends State<Home> {
       TBAGet instance = TBAGet();
 
     
+
+  Future<void> testDataBS()async{
+    await EventService.getTestData();
+    await EventService.readTestDataFromStorage();
+  }
       @override
   void initState(){
     // TODO: implement initState
     super.initState();
-    
+    testDataBS();
 
   }
 
