@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 class Android extends StatelessWidget {
   @override
@@ -10,11 +10,6 @@ class Android extends StatelessWidget {
         appBar: AppBar(
           leading: Icon(Icons.menu,),
           backgroundColor: Color(0xff1f1f1f),
-          // title: Text(
-          //   'Scoultimate',
-          //   style: TextStyle(fontSize: 35, color: Colors.yellow[700], fontFamily: 'Tomorrow'),
-          // ),
-          // centerTitle: true,
           actions: <Widget>[
           Image.asset('assets/logo2.png'),
           ],
@@ -190,7 +185,7 @@ class Android extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Icon(LineIcons.rocket, size:36),
+                              Icon(MaterialCommunityIcons.rocket, size:36),
                               SizedBox(height: 10.0,),
                               Text('2019'),
                               Text(
@@ -286,7 +281,7 @@ class Android extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Icon(Icons.settings, size:36),
+                              Icon(MaterialCommunityIcons.cogs, size:36),
                               SizedBox(height: 10.0,),
                               Text('2017'),
                               Text(
@@ -324,7 +319,7 @@ class Android extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Icon(Icons.flag, size:36),
+                              Icon(MaterialCommunityIcons.castle, size:36),
                               SizedBox(height: 10.0,),
                               Text('2016'),
                               Text(
@@ -420,7 +415,7 @@ class Android extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Icon(LineIcons.plane, size:36),
+                              Icon(MaterialCommunityIcons.shield_airplane_outline, size:36),
                               SizedBox(height: 10.0,),
                               Text('2014'),
                               Text(
@@ -467,11 +462,11 @@ class Android extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Icon(Icons.flag, size:36),
+                              Icon(MaterialCommunityIcons.airplane_takeoff, size:36),
                               SizedBox(height: 10.0,),
-                              Text('2016'),
+                              Text('2013'),
                               Text(
-                                'FIRST',
+                                'Ultimate',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey[700],
@@ -479,7 +474,7 @@ class Android extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                               ),
-                              Text('Stronghold',
+                              Text('Ascent',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey[700],
@@ -513,11 +508,11 @@ class Android extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Icon(LineIcons.recycle, size:36),
+                              Icon(MaterialCommunityIcons.basketball, size:36),
                               SizedBox(height: 10.0,),
-                              Text('2015'),
+                              Text('2012'),
                               Text(
-                                'Recycle',
+                                'Rebound',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey[700],
@@ -525,7 +520,7 @@ class Android extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                               ),
-                              Text('Rush',
+                              Text('Rumble',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey[700],
