@@ -21,7 +21,9 @@ class _HomeState extends State<Home> {
 
   Future<void> testDataBS()async{
     await EventService.getTestData();
-    await EventService.readTestDataFromStorage();
+    var _response = await EventService.readTestDataFromStorage();
+    var realResponse = _response[0];
+    print('response is ${realResponse['nickname']}');
   }
       @override
   void initState(){
