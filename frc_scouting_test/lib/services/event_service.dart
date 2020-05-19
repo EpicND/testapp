@@ -72,7 +72,7 @@ class EventService {
       // decoded.forEach((index){
       //   _storedList.add(decoded[index]);
       // });
-      print(decoded[1]['name']);
+      // print(decoded[1]['name']);
       // print(teamNum)
       // return decoded.map<Map>((x) => Map.fromJson());
       // teamNumList.clear();
@@ -89,10 +89,10 @@ class EventService {
     try{
     Response responseTest = await get(
         'https://www.thebluealliance.com/api/v3/team/frc1816?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
-      print(responseTest.body);
+      // print(responseTest.body);
     
     Map responseTest1 = await json.decode(responseTest.body);
-  print(responseTest1);
+  // print(responseTest1);
     final dir = await paths.getApplicationDocumentsDirectory();
     List<dynamic> testData = List<Map>();
     testData.add({
@@ -137,13 +137,13 @@ class EventService {
       // decoded.forEach((index){
       //   _storedList.add(decoded[index]);
       // });
-      // print(decoded[1]['name']);
+      print(decoded[0]['nickname']);
       // print(teamNum)
       // return decoded.map<Map>((x) => Map.fromJson());
       // teamNumList.clear();
       // teamNumList = teamNumList + decoded;
       // print(teamNumList);
-      print('${decoded[0]["name"]}');
+      // print('${decoded[0]["name"]}');
       return decoded;
     } else {
       return <Map>[];
