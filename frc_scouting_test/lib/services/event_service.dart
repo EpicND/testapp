@@ -107,14 +107,8 @@ class EventService {
       "country": responseTest1['country'].toString(),
       "address": responseTest1['address'].toString(),
       "postal_code": responseTest1['postal_code'].toString(),
-      // "gmaps_place_id": responseTest1[''],
-      // "gmaps_url": "string",
-      // "lat": 0,
-      // "lng": 0,
-      // "location_name": "string",
       "website": responseTest1['website'].toString(),
       "rookie_year": responseTest1['rookie_year'].toString(),
-      // "motto": responseTest1[],
     });
     final file = File('${dir.path}/test_data.json');
 
