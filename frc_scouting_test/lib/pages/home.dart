@@ -20,11 +20,11 @@ class _HomeState extends State<Home> {
 
     
 
-  Future<void> testDataBS()async{
+  Future<void> testDataBS() async{
     await GetTeamInfo.getTestData();
     var _response = await GetTeamInfo.readTestDataFromStorage();
     var realResponse = _response[0];
-    print('response is ${realResponse['years_participated']}');
+    print('response is ${realResponse['awards_list'][0]['name']}');
 
   }
       @override

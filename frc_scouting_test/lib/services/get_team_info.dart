@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart' as paths;
 class GetTeamInfo {
 
   static Future<void> getTestData() async {
+    int i;
 
     try{
     Response responseTest = await get(
@@ -15,9 +16,16 @@ class GetTeamInfo {
       Response responseTest2 = await get(
         'https://www.thebluealliance.com/api/v3/team/frc1816/years_participated?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
     
+    Response responseTest4 = await get(
+        'https://www.thebluealliance.com/api/v3/team/frc1816/awards?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
+    
     Map responseTest1 = await json.decode(responseTest.body);
     List responseTest3 = await json.decode(responseTest2.body);
-    print(responseTest3);
+    List responseTest5 = await json.decode(responseTest4.body);
+    print(responseTest5);
+    for(i=0; i < responseTest5.length; i++){
+
+    }
   // print(responseTest1);
     final dir = await paths.getApplicationDocumentsDirectory();
     List<dynamic> testData = List<Map>();
@@ -36,6 +44,8 @@ class GetTeamInfo {
       "website": responseTest1['website'].toString(),
       "rookie_year": responseTest1['rookie_year'].toString(),
       "years_participated": responseTest3.toString(),
+      "awards_count": (responseTest5.length).toString(),
+      'awards_list': responseTest5,
       // "motto": responseTest1[],
     });
     final file = File('${dir.path}/test_data.json');
