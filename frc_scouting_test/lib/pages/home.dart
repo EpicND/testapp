@@ -23,7 +23,8 @@ class _HomeState extends State<Home> {
     await EventService.getTestData();
     var _response = await EventService.readTestDataFromStorage();
     var realResponse = _response[0];
-    print('response is ${realResponse['nickname']}');
+    print('response is ${realResponse['years_participated']}');
+
   }
       @override
   void initState(){
