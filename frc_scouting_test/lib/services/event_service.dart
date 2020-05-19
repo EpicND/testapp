@@ -144,7 +144,7 @@ class EventService {
       // teamNumList = teamNumList + decoded;
       // print(teamNumList);
       print('${decoded[0]["name"]}');
-      return decoded[0];
+      return decoded;
     } else {
       return <Map>[];
     }
