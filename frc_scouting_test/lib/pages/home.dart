@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
     await GetTeamInfo.getTestData();
     var _response = await GetTeamInfo.readTestDataFromStorage();
     var realResponse = _response[0];
-    print('response is ${realResponse['awards_list'][0]['name']}');
+    print('response is ${realResponse['awards_count']}');
 
   }
       @override
