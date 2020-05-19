@@ -94,7 +94,8 @@ class EventService {
         'https://www.thebluealliance.com/api/v3/team/frc1816/years_participated?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
     
     Map responseTest1 = await json.decode(responseTest.body);
-    Map responseTest3 = await json.decode(responseTest2.body);
+    List responseTest3 = await json.decode(responseTest2.body);
+    print(responseTest3);
   // print(responseTest1);
     final dir = await paths.getApplicationDocumentsDirectory();
     List<dynamic> testData = List<Map>();
@@ -112,7 +113,7 @@ class EventService {
       "postal_code": responseTest1['postal_code'].toString(),
       "website": responseTest1['website'].toString(),
       "rookie_year": responseTest1['rookie_year'].toString(),
-      "years_participated": responseTest3[0].toString(),
+      "years_participated": responseTest3.toString(),
       // "motto": responseTest1[],
     });
     final file = File('${dir.path}/test_data.json');
