@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:frc_scouting_test/services/event_service.dart';
 import 'package:frc_scouting_test/services/tba_get.dart';
 import 'package:flutter/foundation.dart';
+import 'package:frc_scouting_test/services/get_team_info.dart';
 // import 'package:multiplatform/adaptive_widgets.dart';
 
 class Home extends StatefulWidget {
@@ -20,8 +21,8 @@ class _HomeState extends State<Home> {
     
 
   Future<void> testDataBS()async{
-    await EventService.getTestData();
-    var _response = await EventService.readTestDataFromStorage();
+    await GetTeamInfo.getTestData();
+    var _response = await GetTeamInfo.readTestDataFromStorage();
     var realResponse = _response[0];
     print('response is ${realResponse['years_participated']}');
 
