@@ -2,10 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:frc_scouting_test/widgets/builder.dart';
+import 'package:frc_scouting_test/services/get_team_info.dart';
 
-class Android extends StatelessWidget {
+
+class Android extends StatefulWidget {
+  @override
+  _Android createState() => _Android();
+}
+
+class _Android extends State<Android> {
+  Future<void> testDataBS()async{
+    await GetTeamInfo.getTestData();
+    var _response = await GetTeamInfo.readTestDataFromStorage();
+    var realResponse = _response[0];
+    print('response is ${realResponse['years_participated']}');
+
+  }
+  @override
+  void initState(){
+    // TODO: implement initState
+    super.initState();
+    testDataBS();
+  }
   @override
    Widget build(BuildContext context) {
+     
      return  Scaffold(
        backgroundColor: Color(0xff121212),
         appBar: AppBar(
@@ -119,38 +140,8 @@ class Android extends StatelessWidget {
                 Divider(
                   color: Colors.white
                 ),
-                Row(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        EventBuilder(
-                          year: 2020,
-                         ),
-                      ],
-                    ),
-                    SizedBox(width: 10.0,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        EventBuilder(
-                          year: 2019,
-                         ),
-                      ],
-                    ),
-                    SizedBox(width: 10.0,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        EventBuilder(
-                          year: 2018,
-                         ),
-                      ],
-                    ),
-                  ],
+                RowBuilder(
+                  yearArr: [2020, 2019, 2018],
                 ),
                 SizedBox(height: 10.0,),
                 Row(
@@ -159,7 +150,7 @@ class Android extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        EventBuilder(
+                        YearBuilder(
                           year: 2017,
                          ),
                       ],
@@ -169,7 +160,7 @@ class Android extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        EventBuilder(
+                        YearBuilder(
                           year: 2016,
                          ),
                       ],
@@ -179,7 +170,7 @@ class Android extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        EventBuilder(
+                        YearBuilder(
                           year: 2015,
                          ),
                       ],
@@ -193,7 +184,7 @@ class Android extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        EventBuilder(
+                        YearBuilder(
                           year: 2014,
                          ),
                       ],
@@ -203,7 +194,7 @@ class Android extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        EventBuilder(
+                        YearBuilder(
                           year: 2013,
                          ),
                       ],
@@ -213,7 +204,7 @@ class Android extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        EventBuilder(
+                        YearBuilder(
                           year: 2012,
                          ),
                       ],
