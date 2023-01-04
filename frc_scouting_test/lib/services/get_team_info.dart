@@ -5,54 +5,49 @@ import 'dart:convert';
 import 'package:path_provider/path_provider.dart' as paths;
 
 class GetTeamInfo {
-
   static Future<void> getTestData() async {
     int i;
 
-    try{
-    Response responseTest = await get(
-        'https://www.thebluealliance.com/api/v3/team/frc1816?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
+    try {
+      Response responseTest = await get(
+          'https://www.thebluealliance.com/api/v3/team/frc2264?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
       // print(responseTest.body);
       Response responseTest2 = await get(
-        'https://www.thebluealliance.com/api/v3/team/frc1816/years_participated?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
-    
-    Response responseTest4 = await get(
-        'https://www.thebluealliance.com/api/v3/team/frc1816/awards?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
-    
-    Map responseTest1 = await json.decode(responseTest.body);
-    List responseTest3 = await json.decode(responseTest2.body);
-    List responseTest5 = await json.decode(responseTest4.body);
-    print(responseTest5);
-    for(i=0; i < responseTest5.length; i++){
+          'https://www.thebluealliance.com/api/v3/team/frc2264/years_participated?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
 
-    }
-  // print(responseTest1);
-    final dir = await paths.getApplicationDocumentsDirectory();
-    List<dynamic> testData = List<Map>();
-    testData.add({
-      // 'nickname': responseTest1['nickname'],
-      "key": responseTest1['key'].toString(),
-      "team_number": responseTest1['team_number'].toString(),
-      "nickname": responseTest1['nickname'].toString(),
-      "name": responseTest1['name'].toString(),
-      "school_name": responseTest1['school_name'].toString(),
-      "city": responseTest1['city'].toString(),
-      "state_prov": responseTest1['state_prov'].toString(),
-      "country": responseTest1['country'].toString(),
-      "address": responseTest1['address'].toString(),
-      "postal_code": responseTest1['postal_code'].toString(),
-      "website": responseTest1['website'].toString(),
-      "rookie_year": responseTest1['rookie_year'].toString(),
-      "years_participated": responseTest3.toString(),
-      "awards_count": (responseTest5.length).toString(),
-      'awards_list': responseTest5,
-      // "motto": responseTest1[],
-    });
-    final file = File('${dir.path}/test_data.json');
+      Response responseTest4 = await get(
+          'https://www.thebluealliance.com/api/v3/team/frc2264/awards?X-TBA-Auth-Key=mhsRwj3wHlnsMy2sYPRH3Y8VtIsFtg5vGIJ9MhZy8BqSCLVA6aR911q7unV1qDWd');
 
-    return file.writeAsString(
-      json.encode(testData)
-    );
+      Map responseTest1 = await json.decode(responseTest.body);
+      List responseTest3 = await json.decode(responseTest2.body);
+      List responseTest5 = await json.decode(responseTest4.body);
+      print(responseTest5);
+      for (i = 0; i < responseTest5.length; i++) {}
+      // print(responseTest1);
+      final dir = await paths.getApplicationDocumentsDirectory();
+      List<dynamic> testData = List<Map>();
+      testData.add({
+        // 'nickname': responseTest1['nickname'],
+        "key": responseTest1['key'].toString(),
+        "team_number": responseTest1['team_number'].toString(),
+        "nickname": responseTest1['nickname'].toString(),
+        "name": responseTest1['name'].toString(),
+        "school_name": responseTest1['school_name'].toString(),
+        "city": responseTest1['city'].toString(),
+        "state_prov": responseTest1['state_prov'].toString(),
+        "country": responseTest1['country'].toString(),
+        "address": responseTest1['address'].toString(),
+        "postal_code": responseTest1['postal_code'].toString(),
+        "website": responseTest1['website'].toString(),
+        "rookie_year": responseTest1['rookie_year'].toString(),
+        "years_participated": responseTest3.toString(),
+        "awards_count": (responseTest5.length).toString(),
+        'awards_list': responseTest5,
+        // "motto": responseTest1[],
+      });
+      final file = File('${dir.path}/test_data.json');
+
+      return file.writeAsString(json.encode(testData));
     } catch (e) {
       print(e);
     }
@@ -81,6 +76,4 @@ class GetTeamInfo {
       return <Map>[];
     }
   }
-
-
 }

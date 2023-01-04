@@ -8,7 +8,6 @@ import 'package:frc_scouting_test/widgets/cupertino_app.dart';
 import 'package:frc_scouting_test/widgets/builder.dart';
 
 void main() {
-
   runApp(
     MaterialApp(
       initialRoute: '/',
